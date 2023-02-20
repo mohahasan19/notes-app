@@ -13,6 +13,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TextInput,
   useColorScheme,
   View,
 } from 'react-native';
@@ -75,8 +76,12 @@ function App(): JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-           <Text style={styles.highlight}>Welcome to the notes App</Text>
-          
+           <Text style={styles.highlight}>Welcome to the Maru App</Text>
+           <TextInput style={{
+          height: 50,
+          borderColor: 'gray',
+          borderWidth: 1, }}
+           defaultValue='Type notes here!'></TextInput>
         </View>
       </ScrollView>
     </SafeAreaView>
