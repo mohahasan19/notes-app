@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
@@ -13,8 +6,10 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  Alert,
   TextInput,
   useColorScheme,
+  Button,
   View,
 } from 'react-native';
 
@@ -63,6 +58,8 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  const [numTextInputs,setNumTextInputs] = React.useState(0);
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -77,11 +74,15 @@ function App(): JSX.Element {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
            <Text style={styles.highlight}>Welcome to the Maru App</Text>
-           <TextInput style={{
-          height: 50,
-          borderColor: 'gray',
-          borderWidth: 1, }}
-           defaultValue='Type notes here!'></TextInput>
+           <Button
+        title="Click to add notes"
+        onPress={() => setNumTextInputs(val => val+1)}/>
+        {[...Array(numTextInputs).keys()].map(key=> {
+          return<TextInput key={key} style={{
+            height: 50,
+            borderColor: 'gray',
+            borderWidth: 1}} placeholder='New note!'/>
+        })}
         </View>
       </ScrollView>
     </SafeAreaView>
