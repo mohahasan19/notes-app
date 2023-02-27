@@ -83,6 +83,9 @@ function App(): JSX.Element {
             borderColor: 'gray',
             borderWidth: 1}} placeholder='New note!'/>
         })}
+        <Button
+        title="Delete last note"
+        onPress={() => setNumTextInputs(val => val-1)}/>
         </View>
       </ScrollView>
     </SafeAreaView>
