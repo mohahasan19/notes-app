@@ -5,7 +5,6 @@ import {
   ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
   Alert,
   TextInput,
   useColorScheme,
@@ -21,59 +20,29 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import { NativeBaseProvider, Text, Heading, Container, Center } from "native-base";
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
-function Section({children, title}: SectionProps): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  
 
   const [numTextInputs,setNumTextInputs] = React.useState(0);
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
+  <NativeBaseProvider>
+  <Center>
+   <Container bg="secondary.50">
       <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-           <Text style={styles.highlight}>Welcome to the Maru App</Text>
+        contentInsetAdjustmentBehavior="automatic">
+        
+            <Heading color="secondary.500">Welcome to the Maru App!</Heading>
            <Button
         title="Click to add notes"
         onPress={() => setNumTextInputs(val => val+1)}/>
@@ -86,9 +55,12 @@ function App(): JSX.Element {
         <Button
         title="Delete last note"
         onPress={() => setNumTextInputs(val => val-1)}/>
-        </View>
+        
       </ScrollView>
-    </SafeAreaView>
+    
+    </Container>
+  </Center>
+    </NativeBaseProvider>
   );
 }
 
