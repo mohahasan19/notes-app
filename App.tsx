@@ -37,8 +37,8 @@ function App(): JSX.Element {
 
   return (
   <NativeBaseProvider>
-  <Center>
-   <Container bg="secondary.50">
+  <Center flex = {1} bg ="secondary.50">
+   
       <ScrollView
         contentInsetAdjustmentBehavior="automatic">
         
@@ -58,7 +58,6 @@ function App(): JSX.Element {
         
       </ScrollView>
     
-    </Container>
   </Center>
     </NativeBaseProvider>
   );
