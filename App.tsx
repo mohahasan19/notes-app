@@ -52,9 +52,10 @@ function App(): JSX.Element {
             borderColor: 'gray',
             borderWidth: 1}} placeholder='New note!'/>
         })}
-        <Button
+        { numTextInputs!=0 && <Button
         title="Delete last note"
-        onPress={() => setNumTextInputs(val => val-1)}/>
+        onPress={() => setNumTextInputs(val => val-1)}/>}
+        
         
       </ScrollView>
     
