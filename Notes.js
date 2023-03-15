@@ -1,5 +1,5 @@
 import React from 'react';
-import type {PropsWithChildren} from 'react';
+import {PropsWithChildren} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import {
   SafeAreaView,
@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import { NativeBaseProvider, Text, Heading, Container, Center } from "native-base";
 
-function Notes(): JSX.Element {
+function Notes({navigation}) {
     const [numTextInputs,setNumTextInputs] = React.useState(0);
     return(
         <NativeBaseProvider>
@@ -37,7 +37,7 @@ function Notes(): JSX.Element {
         title="Delete last note"
         onPress={() => setNumTextInputs(val => val-1)}/>}
         
-        
+       <Button title="Fasting" onPress={() => {navigation.navigate("Fasting")}} /> 
       </ScrollView>
     
   </Center>

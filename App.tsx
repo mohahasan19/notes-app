@@ -2,6 +2,7 @@ import React from 'react';
 import type {PropsWithChildren} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import Notes from './Notes';
+import Fasting from './Fasting';
 import {
   SafeAreaView,
   ScrollView,
@@ -44,6 +45,7 @@ function App(): JSX.Element {
   <NativeBaseProvider>
   <Stack.Navigator initialRouteName="Home">
     <Stack.Screen name= "Home" component={Notes}></Stack.Screen>
+    <Stack.Screen name= "Fasting" component={Fasting}></Stack.Screen>
   </Stack.Navigator>
   </NativeBaseProvider>
 </NavigationContainer>
